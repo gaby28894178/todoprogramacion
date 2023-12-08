@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define cantidad 5
+
+struct persona{
+                                long legajo;
+                                char NyA[51];
+                                char DNI[15];
+                                short edad;
+                        };
+
+int main(void)
+{
+        struct persona alumnos[cantidad];
+        short indice;
+//        alumno.legajo=1234567;
+//        strcpy(alumno.NyA, "Juan Perez");
+//        alumno.edad=26;
+
+        for(indice=0;indice < cantidad; indice++)
+        {
+                printf("Legajo: ");
+                scanf("%ld",&alumnos[indice].legajo);
+                printf("Nombre y apellido: ");
+                fflush(stdin); /** fpurge */
+                scanf(" %50[^\n]s", alumnos[indice].NyA);
+                printf("Edad: ");
+                scanf("%hd", &alumnos[indice].edad);
+        }
+
+        system("pause");
+        system("cls");
+
+        for(indice=0;indice < cantidad; indice++)
+        {
+                printf("Legajo= %ld\n", alumnos[indice].legajo);
+                printf("NyA= %s\n", alumnos[indice].NyA);
+                printf("Edad= %hd\n", alumnos[indice].edad);
+        }
+
+        return 0;
+}
